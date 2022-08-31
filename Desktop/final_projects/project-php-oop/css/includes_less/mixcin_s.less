@@ -1,0 +1,16 @@
+.fontMixin(@No) when (@No<=4){
+  .font-size-@{No}{
+    font-size:0.9rem * @No ;
+  }
+  .fontMixin(@No+1);
+}
+@listColor:"warning","primary","secondary","success";
+.colorButtonFilter(@No) when (@No<=length(@listColor)){
+  @colorButton:e(%(".btn-%s",extract(@listColor,@No)));
+  .commentsUser{
+    @{colorButton}{
+      color: #fff;
+    }
+  }
+  .colorButtonFilter(@No+1);
+}
